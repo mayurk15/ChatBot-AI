@@ -1,0 +1,41 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+
+# Virtual environment
+venv/
+env/
+
+# Django-related files
+db.sqlite3
+media/
+staticfiles/
+
+# IDE files
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Node.js-related files (if using npm or yarn for frontend assets)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+
+# Compiled files
+*.class
+*.dll
+*.so
+*.dylib
+
+# Backup files
+*.bak
+*.swp
+*.swo

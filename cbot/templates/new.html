@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayur's AI Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0f1d, #131a30, #1a2a6c);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #f0f8ff;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            color: #4dabf7;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(77, 171, 247, 0.4);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #a5d8ff, #4dabf7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #a0c6f8;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(64, 128, 255, 0.15);
+            text-align: center;
+            margin-bottom: 25px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .ai-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+            animation: pulse 3s infinite;
+        }
+
+        .ai-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .welcome {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #e0f7ff;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #b3d0ff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 36px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(to right, #2563eb, #3b82f6);
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.6);
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        footer {
+            font-size: 0.9rem;
+            color: #7e9ed8;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        footer a {
+            color: #64a0ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #8ab6ff;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+            }
+            70% {
+                box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .ai-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .ai-icon i {
+                font-size: 2rem;
+            }
+
+            .welcome {
+                font-size: 1.3rem;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1>Mayur's AI Assistant</h1>
+
+        </header>
+
+        <div class="card">
+            <div class="ai-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+
+            <h2 class="welcome">Welcome to Your AI Assistant</h2>
+
+            <p class="description">Experience professional AI assistance designed to help you with tasks, answer questions, and provide intelligent solutions.</p>
+
+            <a href="{% url 'chat' %}" class="btn">
+                <i class="fas fa-comments"></i>
+                Go to AI Assistant
+            </a>
+        </div>
+
+       
+    </div>
+</body>
+</html>
